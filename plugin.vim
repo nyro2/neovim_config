@@ -15,6 +15,7 @@ Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'easymotion/vim-easymotion'
+Plug 'whatyouhide/vim-lengthmatters'
 "=== Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
@@ -100,3 +101,7 @@ if s:plug.is_installed("vim-iced")
     let g:iced_enable_default_key_mappings = v:true
 endif
 
+" vim-lengthmatters
+if s:plug.is_installed("vim-lengthmatters")
+    let g:lengthmatters_start_at_column = 121
+endif
