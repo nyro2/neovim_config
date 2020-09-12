@@ -1,3 +1,7 @@
+"ColorScheme
+colorscheme badwolf
+set termguicolors
+
 " Display
 set number
 set ruler

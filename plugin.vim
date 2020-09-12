@@ -1,10 +1,10 @@
 " vim-plug
 call plug#begin()
 "=== ColorScheme
-Plug 'jeetsukumaran/vim-nefertiti'
-Plug 'sjl/badwolf'
-Plug 'aereal/vim-colors-japanesque'
-Plug 'morhetz/gruvbox'
+Plug 'jeetsukumaran/vim-nefertiti', {'do': 'cp colors/* ~/.config/nvim/colors/'}
+Plug 'sjl/badwolf', {'do': 'cp colors/* ~/.config/nvim/colors/'}
+Plug 'aereal/vim-colors-japanesque', {'do': 'cp colors/* ~/.config/nvim/colors/'}
+Plug 'morhetz/gruvbox', {'do': 'cp colors/* ~/.config/nvim/colors/'}
 "=== General
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
@@ -41,23 +41,6 @@ let s:plug = {
 function! s:plug.is_installed(name)
   return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
 endfunction
-
-" vim-lsp
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd', '-background-index']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
-endif
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
 
 " lexima
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'leave': 1})
